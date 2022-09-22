@@ -1,0 +1,143 @@
+.container {
+	background: linear-gradient(90deg, #8b9096 0%, #d9d9d9 100%);
+	border-radius: 20px;
+	width: 350px;
+	height: 490px;
+
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.container:hover {
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03);
+	transition-duration: 0.25s;
+}
+
+.name {
+	box-sizing: border-box;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #423e3f;
+
+	width: 350px;
+}
+
+.img {
+	width: 350px;
+	height: 250px;
+}
+
+.weightContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	box-sizing: border-box;
+
+	width: 350px;
+	height: 45px;
+}
+
+.weightName {
+	width: 350px;
+	height: 30px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 29px;
+	text-align: center;
+
+	color: #423e3f;
+}
+
+.weightValue {
+	width: 350px;
+	height: 25px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 17px;
+	line-height: 24px;
+
+	text-align: center;
+
+	color: #000000;
+}
+
+.tempsContainer {
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+
+	width: 350px;
+	height: 80px;
+}
+
+.tempsName {
+	width: 152px;
+	height: 27px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 29px;
+
+	color: #423e3f;
+}
+
+.tempsValue {
+	width: 305px;
+	height: 45px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	text-align: center;
+
+	color: #000000;
+}
+
+.btn {
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	bottom: 9px;
+	right: 9px;
+	background: linear-gradient(90deg, #8b9096 0%, #d9d9d9 100%);
+	color: #423e3f;
+	border-color: #423e3f;
+	border-radius: 20px;
+	border-width: 2px;
+	cursor: pointer;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.btn:hover {
+	background: linear-gradient(90deg, #423e3f 0%, #8b9096 100%);
+	color: #ffffff;
+	border-color: #ffffff;
+}

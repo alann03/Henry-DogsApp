@@ -1,0 +1,80 @@
+.error404 {
+	background: linear-gradient(90deg, #1f1d1d 0%, #423e3f 55.73%, #423e3f 100%);
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.error404two {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 55%;
+}
+
+.container {
+	width: 400px;
+	height: 580px;
+}
+
+.img {
+	background-image: url("../../img/dog-error.png");
+	background-position: center;
+	width: 400px;
+	height: 580px;
+}
+
+.text {
+	position: absolute;
+	bottom: 370px;
+	left: 782px;
+	width: 370px;
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 28px;
+	transform: rotate(-4deg);
+	text-align: center;
+	color: #6a6a6a;
+}
+
+.text2 {
+	position: absolute;
+	bottom: 264px;
+	left: 782px;
+	width: 370px;
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 28px;
+	transform: rotate(-4deg);
+	text-align: center;
+	color: #6a6a6a;
+}
+
+.btn {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+	text-align: center;
+
+	height: 35px;
+	width: 115px;
+	margin-top: 20px;
+
+	color: #423e3f;
+	background-color: #d9d9d9;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+}
+
+.btn:hover {
+	background-color: #423e3f;
+	color: #d9d9d9;
+	transition-duration: 0.75s;
+}

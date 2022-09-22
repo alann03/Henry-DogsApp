@@ -1,0 +1,65 @@
+.container {
+	background: linear-gradient(90deg, #1f1d1d 0%, #423e3f 55.73%, #423e3f 100%);
+	background-size: cover;
+	height: 140vh;
+}
+
+.filters {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	padding: 54px 230px 32px 230px;
+}
+
+.refreshBtt {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+	text-align: center;
+
+	height: 35px;
+	width: 115px;
+
+	color: #d9d9d9;
+	background-color: #423e3f;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+}
+
+.refreshBtt:hover {
+	background-color: #ffffff;
+	color: #423e3f;
+	transition-duration: 0.75s;
+}
+
+.select {
+	background: linear-gradient(90deg, #8b9096 0%, #d9d9d9 100%);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+
+	width: 294px;
+	height: 35px;
+	text-align: center;
+
+	color: #423e3f;
+}
+
+.option {
+	background-color: #d9d9d9;
+	font-size: 18px;
+}
+
+.cardsAndPaginated {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}

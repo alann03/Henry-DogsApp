@@ -1,0 +1,69 @@
+.container {
+	background: linear-gradient(
+		90deg,
+		rgba(94, 93, 92, 0.72) 0%,
+		#9c9793 50%,
+		#d9d9d9 100%
+	);
+	border-radius: 0px 0px 15px 15px;
+	height: 72px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 15px;
+	align-self: stretch;
+}
+
+.title {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.link {
+	text-decoration: none;
+}
+
+.text {
+	width: 165px;
+	height: 55px;
+
+	color: #ffffff;
+	font-family: "Henny Penny";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 58px;
+}
+
+.img {
+	width: 57px;
+	height: 55px;
+
+	background: url("../../img/huella.png");
+	background-position: center;
+	background-size: cover;
+}
+
+.btn {
+	color: #d9d9d9;
+	width: 190px;
+	height: 37px;
+	background-color: #423e3f;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.btn:hover {
+	background-color: #d9d9d9;
+	color: #423e3f;
+	transition-duration: 0.75s;
+}

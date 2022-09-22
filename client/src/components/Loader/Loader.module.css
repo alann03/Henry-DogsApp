@@ -1,0 +1,8 @@
+.loader {
+	background-image: url("../../img/running-dog.gif");
+	width: 110px;
+	height: 78px;
+	position: absolute;
+	top: 49%;
+	left: 47%;
+}

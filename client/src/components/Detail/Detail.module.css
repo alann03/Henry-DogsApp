@@ -1,0 +1,81 @@
+.container {
+	background: linear-gradient(90deg, #1f1d1d 0%, #423e3f 55.73%, #423e3f 100%);
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cardDetail {
+	background: linear-gradient(90deg, #8b9096 0%, #d9d9d9 100%);
+	box-shadow: 0.75px 0.75px 5px 0px rgb(185, 183, 183);
+	border-radius: 30px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+
+	width: 700px;
+	height: 770px;
+	margin-top: 62px;
+}
+
+.name {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 45px;
+	line-height: 58px;
+	text-align: center;
+	color: #423e3f;
+}
+
+.img {
+	width: 500px;
+	height: 350px;
+	border-radius: 20px;
+	margin: -15px 0px -10px 0px;
+}
+
+.statsContainer {
+	width: 690px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.stat {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	height: 80px;
+}
+
+.statName {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 600;
+	font-size: 32px;
+	color: #423e3f;
+}
+
+.statValue {
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 26px;
+	text-align: center;
+	color: #000000;
+}
+
+.tempsContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	width: 690px;
+}

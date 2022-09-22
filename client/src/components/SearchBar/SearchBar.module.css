@@ -1,0 +1,48 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 425px;
+	height: 45px;
+}
+
+.input {
+	width: 300px;
+	height: 35px;
+
+	background: #423e3f;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+	outline: none;
+
+	color: #d9d9d9;
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+}
+
+.btn {
+	width: 112px;
+	height: 37px;
+	background-color: #423e3f;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+
+	color: #d9d9d9;
+}
+
+.btn:hover {
+	background-color: #d9d9d9;
+	color: #423e3f;
+	transition-duration: 0.75s;
+}

@@ -1,0 +1,69 @@
+.container {
+	background-image: url("../../img/dog-landing.jpg");
+	height: 100vh;
+	width: 100vw;
+	background-position: center;
+	background-size: cover;
+}
+
+.title {
+	width: 780px;
+	height: 105px;
+
+	position: absolute;
+	left: 1106px;
+	top: 379px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+}
+
+.text {
+	color: #ffffff;
+	width: 640px;
+	height: 84px;
+
+	font-family: "Henny Penny";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 56px;
+	line-height: 99px;
+}
+
+.img {
+	width: 122px;
+	height: 105px;
+
+	background-image: url("../../img/huella.png");
+	background-position: center;
+	background-size: cover;
+}
+
+.btn {
+	color: #ffffff;
+	background-color: #423e3f;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+
+	position: absolute;
+	left: 1400px;
+	top: 520px;
+	width: 140px;
+	height: 60px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 50px;
+}
+
+.btn:hover {
+	background-color: #d9d9d9;
+	color: #423e3f;
+	transition-duration: 0.75s;
+}
