@@ -51,10 +51,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				detail: action.payload,
 			};
-		case DELETE_DOG:
-			return {
-				...state,
-			};
 		case ALPHABETICAL_ORDER:
 			const alphabeticalSorted =
 				action.payload === "asc"

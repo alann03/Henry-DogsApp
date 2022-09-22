@@ -1,16 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteDog } from "../../actions";
 import s from "./Card.module.css";
 
 export default function DogCard({ id, name, image, weight, temperaments }) {
-	const dispatch = useDispatch();
-
-	function handleDelete(e) {
-		e.preventDefault();
-		dispatch(deleteDog(id));
-	}
 
 	return (
 		<div className={s.container}>
@@ -35,9 +27,6 @@ export default function DogCard({ id, name, image, weight, temperaments }) {
 			<Link to={`/home/${id}`}>
 				<button className={s.btn}>!</button>
 			</Link>
-			{typeof id === "string" ? (
-				<button onClick={e => handleDelete(e)}>X</button>
-			) : null}
 		</div>
 	);
 }

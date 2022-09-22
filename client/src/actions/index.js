@@ -57,13 +57,6 @@ export function getDetail(id) {
 	};
 }
 
-export function deleteDog(id) {
-	return async function (dispatch) {
-		const results = await axios.get(`/dogs?id=${id}`, id);
-		return results;
-	};
-}
-
 export function clearDetail() {
 	return {
 		type: CLEAR_DETAIL,

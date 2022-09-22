@@ -31,14 +31,6 @@ const postDogs = async (req, res, next) => {
 			? "https://cdn.pixabay.com/photo/2016/10/10/14/13/dog-1728494_960_720.png"
 			: image;
 
-		console.log({
-			name: nameMayus,
-			height: `${min_height} - ${max_height}`,
-			weight: `${min_weight} - ${max_weight}`,
-			life_span: lifeSpan,
-			image: img,
-		});
-
 		const newDog = await Dog.create({
 			name: nameMayus,
 			height: `${min_height} - ${max_height}`,

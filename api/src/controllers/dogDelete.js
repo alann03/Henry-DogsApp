@@ -1,14 +1,18 @@
 const { Dog } = require("../db");
 
-const deleteDogs = (req, res) => {
+const deleteDogs = async (req, res, next) => {
 	const id = req.query.id;
 
-	if (id.includes("-")) {
-		Dog.destroy({ where: { id } });
-
-		res.status(200).send("Dog deleted");
+	try {
+		if (await Dog.findByPk(id)) {
+			if (id.includes("-")) {
+				await Dog.destroy({ where: { id } });
+				res.status(200).send("Dog deleted");
+			} else res.status(400).send("This dog cannot be deleted");
+		} else res.status(400).send("The dog does not exist");
+	} catch (error) {
+		next(error);
 	}
-	res.status(400).send("This dog cannot be deleted");
 };
 
 module.exports = deleteDogs;
