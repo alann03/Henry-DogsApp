@@ -3,8 +3,7 @@ import {
 	GET_TEMPERAMENTS,
 	FILTER_BY_CREATED,
 	FILTER_BY_TEMPERAMENT,
-	ALPHABETICAL_ORDER,
-	ORDER_BY_WEIGHT,
+	SORT,
 	GET_BY_NAME,
 	POST_DOG,
 	GET_DETAIL,
@@ -51,26 +50,21 @@ function rootReducer(state = initialState, action) {
 				...state,
 				detail: action.payload,
 			};
-		case ALPHABETICAL_ORDER:
-			const alphabeticalSorted =
-				action.payload === "asc"
+		case SORT:
+			const sortedDogs =
+				action.payload === "alphAsc"
 					? state.dogs.sort((a, b) => {
 							if (a.name > b.name) return 1;
 							if (a.name < b.name) return -1;
 							return 0;
 					  })
-					: state.dogs.sort((a, b) => {
+					: action.payload === "alphDesc"
+					? state.dogs.sort((a, b) => {
 							if (a.name > b.name) return -1;
 							if (a.name < b.name) return 1;
 							return 0;
-					  });
-			return {
-				...state,
-				dogs: alphabeticalSorted,
-			};
-		case ORDER_BY_WEIGHT:
-			const weightSorted =
-				action.payload === "asc"
+					  })
+					: action.payload === "weightAsc"
 					? state.dogs.sort(
 							(a, b) => a.weight.split(" - ")[0] - b.weight.split(" - ")[0]
 					  )
@@ -79,7 +73,7 @@ function rootReducer(state = initialState, action) {
 					  );
 			return {
 				...state,
-				dogs: weightSorted,
+				dogs: sortedDogs,
 			};
 		case FILTER_BY_CREATED:
 			const allDogs = state.allDogs;
