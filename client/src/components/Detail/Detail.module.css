@@ -7,6 +7,51 @@
 	align-items: center;
 }
 
+.containerCardAndBtns {
+	display: flex;
+	align-items: center;
+}
+
+.btnDelete {
+	color: #d9d9d9;
+	height: 37px;
+	background-color: #671a1d;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.btnDelete:hover {
+	background-color: #d9d9d9;
+	color: #671a1d;
+	transition-duration: 0.75s;
+}
+
+.btnUpdate {
+	color: #d9d9d9;
+	height: 37px;
+	background-color: #003566;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	border-width: 0px;
+
+	font-family: "Fredoka";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25px;
+}
+
+.btnUpdate:hover {
+	background-color: #d9d9d9;
+	color: #003566;
+	transition-duration: 0.75s;
+}
+
 .cardDetail {
 	background: linear-gradient(90deg, #8b9096 0%, #d9d9d9 100%);
 	box-shadow: 0.75px 0.75px 5px 0px rgb(185, 183, 183);
@@ -19,7 +64,7 @@
 
 	width: 700px;
 	height: 770px;
-	margin-top: 62px;
+	margin: 6% 5% 0% 5%;
 }
 
 .name {

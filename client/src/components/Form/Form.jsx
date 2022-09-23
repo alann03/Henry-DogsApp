@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { postDog, getTemperaments, getDogs } from "../../actions";
+import { useHistory, useParams } from "react-router-dom";
+import { postDog, getTemperaments, getDogs, getDetail } from "../../actions";
+import Error404 from "../Error 404/Error404";
 import validate from "./validations";
 import NavBar from "../NavBar/NavBar";
 import s from "./Form.module.css";
+import axios from "axios";
 
 export default function Form() {
 	const dispatch = useDispatch();
 	const history = useHistory();
+	const { id } = useParams();
 	const temps = useSelector(state => state.temperaments);
-	const dogs = useSelector(state => state.allDogs);
+	const dogToUpdate = useSelector(state => state.detail);
 	const [errors, setErrors] = useState({});
-
+	const [render, setRender] = useState(false);
 	const [input, setInput] = useState({
 		name: "",
 		min_height: "",
@@ -26,18 +29,36 @@ export default function Form() {
 	});
 
 	useEffect(() => {
-		// lo puedo sacar
 		dispatch(getTemperaments());
 		dispatch(getDogs());
-		setErrors(
+		if (id) dispatch(getDetail(id));
+		else setErrors(
 			validate(
 				{
 					...input,
 				},
-				dogs,
 			),
 		);
 	}, [dispatch]);
+
+	if (id && dogToUpdate.name && !render) {
+		setInput({
+			name: dogToUpdate.name,
+			min_height: dogToUpdate.height.split(" ")[0],
+			max_height: dogToUpdate.height.split(" ")[2],
+			min_weight: dogToUpdate.weight.split(" ")[0],
+			max_weight: dogToUpdate.weight.split(" ")[2],
+			min_life_span: dogToUpdate.life_span === "Unknown" ? ""
+				: dogToUpdate.life_span.split(" ").length === 2 ? dogToUpdate.life_span.split(" ")[0]
+					: dogToUpdate.life_span.split(" ")[0],
+			max_life_span: dogToUpdate.life_span === "Unknown" ? ""
+				: dogToUpdate.life_span.split(" ").length === 2 ? ""
+					: dogToUpdate.life_span.split(" ")[2],
+			image: dogToUpdate.image,
+			temperaments: dogToUpdate.Temperaments.map(t => t.id.toString()),
+		});
+		setRender(!render);
+	};
 
 	const handleChange = e => {
 		setInput({
@@ -50,7 +71,6 @@ export default function Form() {
 					...input,
 					[e.target.name]: e.target.value,
 				},
-				dogs,
 			),
 		);
 	};
@@ -67,7 +87,6 @@ export default function Form() {
 						...input,
 						temperaments: [...input.temperaments, e.target.value],
 					},
-					dogs,
 				),
 			);
 		}
@@ -84,12 +103,11 @@ export default function Form() {
 					...input,
 					temperaments: input.temperaments.filter(t => t !== e),
 				},
-				dogs,
 			),
 		);
 	};
 
-	const handleSubmit = e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault(e);
 		if (
 			input.name === "" &&
@@ -103,8 +121,9 @@ export default function Form() {
 		} else if (Object.keys(errors).length) {
 			alert("Complete required fields or check for errors and try again");
 		} else {
-			dispatch(postDog(input));
-			alert("Dog created");
+			!id ? await axios.post("/dogs", input)
+				: await axios.put(`/dogs?id=${id}`, input);
+			!id ? alert("Dog created") : alert("Dog updated");
 			setInput({
 				name: "",
 				min_height: "",
@@ -116,15 +135,16 @@ export default function Form() {
 				image: "",
 				temperaments: [],
 			});
-			history.push("/home");
+			!id ? history.push("/home") : history.push(`/home/${id}`);
 		}
 	};
 
-	return (
+	if (dogToUpdate === "Not found") return <Error404 text="Dog not found :(" />;
+	else return (
 		<div className={s.container}>
 			<NavBar />
 			<form className={s.form} onSubmit={e => handleSubmit(e)}>
-				<span className={s.title}>Create your dog!</span>
+				<span className={s.title}>{!id ? "Create your dog!" : "Update your dog!"}</span>
 				<div className={s.inputs}>
 					<div className={s.inputContainer}>
 						<label className={s.label}>Name:</label>
@@ -255,7 +275,7 @@ export default function Form() {
 					})}
 				</div>
 				<button className={s.btn} type="submit">
-					Create
+					{!id ? "Create" : "Update"}
 				</button>
 			</form>
 		</div>

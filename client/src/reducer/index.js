@@ -5,7 +5,6 @@ import {
 	FILTER_BY_TEMPERAMENT,
 	SORT,
 	GET_BY_NAME,
-	POST_DOG,
 	GET_DETAIL,
 	CLEAR_DETAIL,
 	DELETE_DOG,
@@ -36,10 +35,6 @@ function rootReducer(state = initialState, action) {
 				...state,
 				dogs: action.payload,
 			};
-		case POST_DOG:
-			return {
-				...state,
-			};
 		case GET_DETAIL:
 			return {
 				...state,
@@ -51,26 +46,29 @@ function rootReducer(state = initialState, action) {
 				detail: action.payload,
 			};
 		case SORT:
-			const sortedDogs =
-				action.payload === "alphAsc"
-					? state.dogs.sort((a, b) => {
-							if (a.name > b.name) return 1;
-							if (a.name < b.name) return -1;
-							return 0;
-					  })
-					: action.payload === "alphDesc"
-					? state.dogs.sort((a, b) => {
-							if (a.name > b.name) return -1;
-							if (a.name < b.name) return 1;
-							return 0;
-					  })
-					: action.payload === "weightAsc"
-					? state.dogs.sort(
-							(a, b) => a.weight.split(" - ")[0] - b.weight.split(" - ")[0]
-					  )
-					: state.dogs.sort(
-							(a, b) => b.weight.split(" - ")[0] - a.weight.split(" - ")[0]
-					  );
+			let sortedDogs;
+			if (typeof state.dogs !== "string") {
+				sortedDogs =
+					action.payload === "alphAsc"
+						? state.dogs.sort((a, b) => {
+								if (a.name > b.name) return 1;
+								if (a.name < b.name) return -1;
+								return 0;
+						  })
+						: action.payload === "alphDesc"
+						? state.dogs.sort((a, b) => {
+								if (a.name > b.name) return -1;
+								if (a.name < b.name) return 1;
+								return 0;
+						  })
+						: action.payload === "weightAsc"
+						? state.dogs.sort(
+								(a, b) => a.weight.split(" - ")[0] - b.weight.split(" - ")[0]
+						  )
+						: state.dogs.sort(
+								(a, b) => b.weight.split(" - ")[0] - a.weight.split(" - ")[0]
+						  );
+			} else sortedDogs = "Not found";
 			return {
 				...state,
 				dogs: sortedDogs,

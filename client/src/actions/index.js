@@ -39,13 +39,6 @@ export function getDogsByName(name) {
 	};
 }
 
-export function postDog(payload) {
-	return async function (dispatch) {
-		const results = await axios.post("/dogs", payload);
-		return results;
-	};
-}
-
 export function getDetail(id) {
 	return async function (dispatch) {
 		const results = await axios.get(`/dogs/${id}`);
