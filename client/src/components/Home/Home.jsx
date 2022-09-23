@@ -5,8 +5,7 @@ import {
 	getTemperaments,
 	filterByCreated,
 	filterByTemperament,
-	alphabeticalOrder,
-	orderByWeight,
+	sort,
 } from "../../actions";
 import Cards from "../Cards/Cards";
 import Pagination from "../Pagination/Pagination";
@@ -44,18 +43,14 @@ export default function Home() {
 	function handleClick(e) {
 		e.preventDefault();
 		dispatch(getDogs());
+		document.querySelector("#sortSelect").value = "";
+		document.querySelector("#tempFilter").value = "";
+		document.querySelector("#originFilter").value = "";
 	}
 
-	function handleSortName(e) {
+	function handleSort(e) {
 		e.preventDefault();
-		dispatch(alphabeticalOrder(e.target.value));
-		setCurrentPage(1);
-		setOrder(`${e.target.value}`);
-	}
-
-	function handleSortWeight(e) {
-		e.preventDefault();
-		dispatch(orderByWeight(e.target.value));
+		dispatch(sort(e.target.value));
 		setCurrentPage(1);
 		setOrder(`${e.target.value}`);
 	}
@@ -65,6 +60,8 @@ export default function Home() {
 		dispatch(filterByCreated(e.target.value));
 		setCurrentPage(1);
 		setOrder(`${e.target.value}`);
+		document.querySelector("#sortSelect").value = "";
+		document.querySelector("#tempFilter").value = "";
 	}
 
 	function handleFilterTemperaments(e) {
@@ -72,6 +69,8 @@ export default function Home() {
 		dispatch(filterByTemperament(e.target.value));
 		setCurrentPage(1);
 		setOrder(`${e.target.value}`);
+		document.querySelector("#sortSelect").value = "";
+		document.querySelector("#originFilter").value = "";
 	}
 	// ----------------------------------------------
 
@@ -85,50 +84,32 @@ export default function Home() {
 						handleClick(e);
 					}}
 				>
-					Refresh
+					Reset
 				</button>
-				<select className={s.select} onChange={e => handleSortName(e)}>
+				<select id="sortSelect" className={s.select} onChange={e => handleSort(e)}>
 					<option className={s.option} value="" disabled selected>
-						Alphabetical order
+						Sort
 					</option>
-					<option className={s.option} value="asc">
+					<option className={s.option} value="alphAsc">
 						A-Z
 					</option>
-					<option className={s.option} value="desc">
+					<option className={s.option} value="alphDesc">
 						Z-A
 					</option>
-				</select>
-				<select className={s.select} onChange={e => handleSortWeight(e)}>
-					<option className={s.option} value="" disabled selected>
-						Sort by weight
+					<option className={s.option} value="weightAsc">
+						Weight -asc-
 					</option>
-					<option className={s.option} value="asc">
-						Ascendente
-					</option>
-					<option className={s.option} value="desc">
-						Descendente
-					</option>
-				</select>
-				<select className={s.select} onChange={e => handleFilterCreated(e)}>
-					<option className={s.option} value="" disabled selected>
-						Filter by created
-					</option>
-					<option className={s.option} value="db">
-						Created
-					</option>
-					<option className={s.option} value="api">
-						Existing
-					</option>
-					<option className={s.option} value="all">
-						All
+					<option className={s.option} value="weightDesc">
+						Weight -desc-
 					</option>
 				</select>
 				<select
+					id="tempFilter"
 					className={s.select}
 					onChange={e => handleFilterTemperaments(e)}
 				>
 					<option className={s.option} value="" disabled selected>
-						Filter by temperaments
+						Filter by temperament
 					</option>
 					{temperaments.map(temp => {
 						return (
@@ -138,6 +119,20 @@ export default function Home() {
 						);
 					})}
 					<option className={s.option} value="All">
+						All
+					</option>
+				</select>
+				<select id="originFilter" className={s.select} onChange={e => handleFilterCreated(e)}>
+					<option className={s.option} value="" disabled selected>
+						Filter by origin
+					</option>
+					<option className={s.option} value="db">
+						Created
+					</option>
+					<option className={s.option} value="api">
+						Existing
+					</option>
+					<option className={s.option} value="all">
 						All
 					</option>
 				</select>

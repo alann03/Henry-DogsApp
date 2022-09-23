@@ -5,8 +5,7 @@ import {
 	GET_TEMPERAMENTS,
 	FILTER_BY_CREATED,
 	FILTER_BY_TEMPERAMENT,
-	ALPHABETICAL_ORDER,
-	ORDER_BY_WEIGHT,
+	SORT,
 	GET_BY_NAME,
 	GET_DETAIL,
 	CLEAR_DETAIL,
@@ -40,13 +39,6 @@ export function getDogsByName(name) {
 	};
 }
 
-export function postDog(payload) {
-	return async function (dispatch) {
-		const results = await axios.post("/dogs", payload);
-		return results;
-	};
-}
-
 export function getDetail(id) {
 	return async function (dispatch) {
 		const results = await axios.get(`/dogs/${id}`);
@@ -64,20 +56,14 @@ export function clearDetail() {
 	};
 }
 
-// -------------------Orders---------------------
-export function alphabeticalOrder(payload) {
+// --------------------Sort----------------------
+export function sort(payload) {
 	return {
-		type: ALPHABETICAL_ORDER,
+		type: SORT,
 		payload,
 	};
 }
 
-export function orderByWeight(payload) {
-	return {
-		type: ORDER_BY_WEIGHT,
-		payload,
-	};
-}
 // ----------------------------------------------
 
 // ------------------Filters---------------------

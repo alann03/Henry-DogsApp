@@ -1,5 +1,5 @@
 // -----------------Validations---------------------
-const validate = (input, allDogs) => {
+const validate = input => {
 	const errors = {};
 
 	// ---name---
@@ -8,13 +8,6 @@ const validate = (input, allDogs) => {
 			errors.name = "Name cannot contain numbers or special characters.";
 		else if (!/^[\s\S]{2,20}$/.test(input.name))
 			errors.name = "The name must contain between 2 and 20 characters.";
-		else if (
-			allDogs.find(
-				dog =>
-					dog.name === input.name[0].toUpperCase() + input.name.substring(1),
-			)
-		)
-			errors.name = "There is already a dog with that name.";
 	} else errors.name = "Name is required.";
 
 	// --weigth--
@@ -92,7 +85,7 @@ const validate = (input, allDogs) => {
 	if (input.image) {
 		if (
 			!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)/.test(
-				input.image,
+				input.image
 			)
 		)
 			errors.image = "Enter a valid image URL. 'example: http://example.com'";
