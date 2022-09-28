@@ -1,5 +1,5 @@
 .container {
-	background-image: url("../../img/dog-landing.jpg");
+	background-image: url("../../img/dog-bg.jpg");
 	height: 100vh;
 	width: 100vw;
 	background-position: center;
@@ -7,30 +7,21 @@
 }
 
 .title {
-	width: 780px;
-	height: 105px;
-
-	position: absolute;
-	left: 1106px;
-	top: 379px;
-
+	position: relative;
+	top: 40%;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 0px;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin-right: 9%;
 }
 
 .text {
 	color: #ffffff;
-	width: 640px;
-	height: 84px;
-
+	margin-right: 0.5%;
 	font-family: "Henny Penny";
 	font-style: normal;
 	font-weight: 400;
 	font-size: 56px;
-	line-height: 99px;
 }
 
 .img {
@@ -42,6 +33,15 @@
 	background-size: cover;
 }
 
+.linkBtn {
+	position: relative;
+	top: 45%;
+	margin-right: 26%;
+	display: flex;
+	justify-content: flex-end;
+	text-decoration: none;
+}
+
 .btn {
 	color: #ffffff;
 	background-color: #423e3f;
@@ -49,9 +49,6 @@
 	border-radius: 12px;
 	border-width: 0px;
 
-	position: absolute;
-	left: 1400px;
-	top: 520px;
 	width: 140px;
 	height: 60px;
 
@@ -66,4 +63,81 @@
 	background-color: #d9d9d9;
 	color: #423e3f;
 	transition-duration: 0.75s;
+}
+
+@media (max-width: 1500px) {
+	.container {
+		background: linear-gradient(
+			90deg,
+			#1f1d1d 0%,
+			#423e3f 55.73%,
+			#423e3f 100%
+		);
+	}
+
+	.title {
+		justify-content: center;
+		margin-right: 0%;
+	}
+
+	.linkBtn {
+		top: 45%;
+		margin-right: 0%;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 1000px) {
+	.text {
+		font-size: 45px;
+	}
+
+	.img {
+		width: 100px;
+		height: 90px;
+	}
+
+	.btn {
+		width: 120px;
+		height: 50px;
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 700px) {
+	.title {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.text {
+		font-size: 32px;
+	}
+
+	.img {
+		width: 88px;
+		height: 78px;
+	}
+
+	.btn {
+		width: 80px;
+		height: auto;
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 400px) {
+	.text {
+		font-size: 26px;
+	}
+
+	.img {
+		width: 70px;
+		height: 70px;
+	}
+
+	.btn {
+		width: 68px;
+		font-size: 16px;
+	}
 }

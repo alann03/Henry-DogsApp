@@ -17,7 +17,7 @@ export default function LandingPage() {
 				<div className={s.text}>Welcome to the Dogs App</div>
 				<div className={s.img} />
 			</div>
-			<Link to="/home">
+			<Link className={s.linkBtn} to="/home">
 				<button className={s.btn}>Home</button>
 			</Link>
 		</div>

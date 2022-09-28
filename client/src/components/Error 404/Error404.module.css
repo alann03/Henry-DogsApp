@@ -28,31 +28,31 @@
 }
 
 .text {
-	position: absolute;
-	bottom: 370px;
-	left: 782px;
-	width: 370px;
+	display: none;
+	/* position: absolute;
+	bottom: 43%;
+	left: 45%;
 	font-family: "Fredoka";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 28px;
 	transform: rotate(-4deg);
 	text-align: center;
-	color: #6a6a6a;
+	color: #6a6a6a; */
 }
 
 .text2 {
-	position: absolute;
-	bottom: 264px;
-	left: 782px;
-	width: 370px;
+	display: none;
+	/* position: absolute;
+	bottom: 43%;
+	left: 45%;
 	font-family: "Fredoka";
 	font-style: normal;
 	font-weight: 600;
 	font-size: 28px;
 	transform: rotate(-4deg);
 	text-align: center;
-	color: #6a6a6a;
+	color: #6a6a6a; */
 }
 
 .btn {
@@ -77,4 +77,30 @@
 	background-color: #423e3f;
 	color: #d9d9d9;
 	transition-duration: 0.75s;
+}
+
+@media (max-width: 743px) {
+	.container {
+		width: 100%;
+	}
+
+	.img {
+		width: 100%;
+	}
+
+	.text {
+		display: none;
+	}
+
+	.text2 {
+		bottom: 11%;
+		width: 99%;
+		left: 0%;
+	}
+
+	.btn {
+		height: 28px;
+		width: 85px;
+		font-size: 17px;
+	}
 }
