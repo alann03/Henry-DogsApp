@@ -1,7 +1,7 @@
 .container {
 	background: linear-gradient(90deg, #1f1d1d 0%, #423e3f 55.73%, #423e3f 100%);
 	background-size: cover;
-	height: 140vh;
+	min-height: 100vh;
 }
 
 .filters {
@@ -62,4 +62,30 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+@media (max-width: 743px) {
+	.filters {
+		flex-wrap: wrap;
+		padding: 6% 0% 5% 0%;
+	}
+
+	.select {
+		width: 109px;
+		height: 25px;
+		margin-top: 2.5%;
+		font-size: 12px;
+	}
+
+	.option {
+		font-size: 12px;
+	}
+
+	.refreshBtt {
+		width: 70px;
+		height: 25px;
+		margin-top: 3.5%;
+		font-size: 14px;
+		order: 1;
+	}
 }

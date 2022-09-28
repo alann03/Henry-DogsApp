@@ -16,7 +16,7 @@ export default function Pagination({
 	return (
 		<div className={s.container}>
 			<button
-				className={s.btt}
+				className={s.btn}
 				onClick={() =>
 					paginated(currentPage === 1 ? currentPage : currentPage - 1)
 				}
@@ -26,15 +26,15 @@ export default function Pagination({
 			{pageNumbers &&
 				pageNumbers.map(number => (
 					<button
-						className={s.btt}
+						className={s.btn}
 						key={number}
 						onClick={() => paginated(number)}
 					>
-						{currentPage === number ? <b>{number}</b> : number}
+						{currentPage === number ? <b className={s.btnCurrent}>{number}</b> : number}
 					</button>
 				))}
 			<button
-				className={s.btt}
+				className={s.btn}
 				onClick={() =>
 					paginated(
 						currentPage === pageNumbers.length

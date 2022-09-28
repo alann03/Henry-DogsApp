@@ -86,23 +86,6 @@ export default function Home() {
 				>
 					Reset
 				</button>
-				<select id="sortSelect" className={s.select} onChange={e => handleSort(e)}>
-					<option className={s.option} value="" disabled selected>
-						Sort
-					</option>
-					<option className={s.option} value="alphAsc">
-						A-Z
-					</option>
-					<option className={s.option} value="alphDesc">
-						Z-A
-					</option>
-					<option className={s.option} value="weightAsc">
-						Weight -asc-
-					</option>
-					<option className={s.option} value="weightDesc">
-						Weight -desc-
-					</option>
-				</select>
 				<select
 					id="tempFilter"
 					className={s.select}
@@ -134,6 +117,23 @@ export default function Home() {
 					</option>
 					<option className={s.option} value="all">
 						All
+					</option>
+				</select>
+				<select id="sortSelect" className={s.select} onChange={e => handleSort(e)}>
+					<option className={s.option} value="" disabled selected>
+						Sort
+					</option>
+					<option className={s.option} value="alphAsc">
+						A-Z
+					</option>
+					<option className={s.option} value="alphDesc">
+						Z-A
+					</option>
+					<option className={s.option} value="weightAsc">
+						Weight -asc-
+					</option>
+					<option className={s.option} value="weightDesc">
+						Weight -desc-
 					</option>
 				</select>
 			</div>

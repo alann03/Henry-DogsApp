@@ -6,3 +6,9 @@
 	top: 49%;
 	left: 47%;
 }
+
+@media (max-width: 743px) {
+	.loader {
+		left: 35%;
+	}
+}

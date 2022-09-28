@@ -71,7 +71,7 @@ export default function Detail() {
 							</div>
 						</div>
 						{id.includes("-") ? (
-							<Link to={`/update-dog/${id}`}>
+							<Link className={s.linkUpdate} to={`/update-dog/${id}`}>
 								<button className={s.btnUpdate}>Update</button>
 							</Link>
 						) : null}
